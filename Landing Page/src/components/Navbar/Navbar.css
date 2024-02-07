@@ -1,0 +1,119 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #fff; 
+  color: #333; 
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  font-family: 'Poppins', sans-serif; 
+}
+
+.left-section {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 80px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.titles {
+  display: flex;
+  margin-left: 20px;
+}
+
+.titles span {
+  margin-right: 15px;
+}
+
+/* Estilos para los nuevos botones */
+.nav-button {
+  background-color: transparent;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  padding: 8px 8px;
+  margin-right: 20px;
+  border-radius: 10px;
+  height: 40px;
+}
+.nav-button:hover {
+  background-color: #ecf0f1; 
+}
+
+/* Estilos para los iconos */
+.icon {
+  margin-left: 5px;
+  width: 15px; 
+  height: 8px; 
+}
+
+.right-section {
+  display: flex; 
+  align-items: center;
+}
+
+.right-section button {
+  justify-content: center;
+  margin-left: 10px;
+  padding: 5px 15px;
+  border: none;
+  cursor: pointer;
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  font-size: 15px;
+}
+
+/* Botón de Registro */
+.right-section .btn-register {
+  background-color: #8B3DFF; 
+  color: #fff; 
+  border-radius: 10px;
+  height: 40px;
+  width: 121px;
+}
+
+.btn-register:hover {
+  background-color: #6a2ec4; 
+}
+
+/* Botón de Inicio de Sesión */
+.right-section .btn-login {
+  background-color: #ecf0f1; 
+  color: #333;
+  border-radius: 10px;
+  height: 40px;
+  width: 121px;
+}
+
+.btn-login:hover {
+  background-color: #c7cacb; 
+}
+
+/* Estilos para los botones con solo imágenes */
+.btn-image {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  height: 40px;
+  width: 40px;
+}
+ 
+.btn-image img {
+  width: 20px; 
+  height: 20px; 
+  border-radius: 50%; 
+}
+
+.btn-image:hover {
+  background-color: #ecf0f1; 
+}
