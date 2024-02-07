@@ -80,18 +80,18 @@ export function Body() {
       </section>
 
       <section className="section">
-        <h2>Cómo funciona Canva</h2>
-        <div className="second-card-container">
-          {secondCard.map((card, index) => (
-            <div className="second-card" key={index}>
-              <img src={card.image} alt="Imagen" />
-              <p>{card.label}</p>
-              <h3>{card.title}</h3>
-              <p>{card.description}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+  <h2 className="second-section-title">Cómo funciona Canva</h2>
+  <div className="second-card-container">
+    {secondCard.map((card, index) => (
+      <div className="second-card" key={index}>
+        <img src={card.image} alt="Imagen" className="second-card-image" />
+        <p className="second-card-label">{card.label}</p>
+        <h3 className="second-card-title">{card.title}</h3>
+        <p className="second-card-description">{card.description}</p>
+      </div>
+    ))}
+  </div>
+</section>
 
     </div>
   );
