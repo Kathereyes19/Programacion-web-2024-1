@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
+.body {
+  text-align: center;
+  padding: 50px 0;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+.content {
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-family: 'Kanit', sans-serif;
+  font-size: 52px;
+  color: #333;
+}
+
+p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  color: #666;
+}
+
+.body-button {
+  background-color: #8B3DFF;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+.body-button:hover {
+  background-color: #6a2ec4;
+}
+
+.gif-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Firts Cards styles*/
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: 0 1 400px;
+  margin-bottom: 20px;
+  padding: 32px 24px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.card-content {
+  padding: 10px;
+}
+
+.card-icon {
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+  margin-right: 300px;
+
+}
+
+.card-button {
+  background-color: #8B3DFF;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  width: 100%;
+}
+
+.card-button:hover {
+  background-color: #6a2ec4;
+}
+
+.card-title {
+  font-family: 'Kanit', sans-serif;
+  font-size: 20ppx;
+  color: #666; 
+  margin-top: 5px;
+}
+.card-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #666;
+  margin: 30px;
+  text-align: left ;
+}
+
+.card .card-button {
+max-width: 350px;
+font-size: 12px;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.condicionAdicional p {
+  font-size: 15px;
+}
+
+.condicionAdicional u {
+  color: #8B3DFF; 
+  text-decoration: underline; 
+}
+
+/* Second Cards styles*/
