@@ -129,3 +129,61 @@ font-size: 12px;
 }
 
 /* Second Cards styles*/
+
+.second-section-title {
+  font-family: 'Kanit', sans-serif;
+  font-size: 32px;
+  color: #333;
+}
+
+.second-card-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.second-card {
+  width: calc(33.33% - 20px); 
+  padding: 20px;
+  margin-bottom: 20px;
+  margin-right: 20px; 
+  background-color: transparent; 
+  border: none; 
+  box-shadow: none; 
+  text-align: left;
+}
+
+.second-card-image {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.second-card-label {
+  width: 60px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+  color: #171717;
+  background-color: #d6d2d2;
+  margin: 5px;
+  padding: 5px; 
+  border-radius: 20px;
+  text-align: center;
+
+}
+
+.second-card-title {
+  margin: 5px; 
+  font-family: 'Kanit', sans-serif;
+  font-size: 23px;
+  color: #333;
+  
+}
+
+.second-card-description {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  color: #666;
+}
