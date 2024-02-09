@@ -1,8 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 
 .body {
   text-align: center;
   padding: 50px 0;
+}
+
+p {
+  font-family: 'Poppins', sans-serif; 
+  color: #171717;
+}
+
+button {
+  font-family: 'Poppins', sans-serif; 
 }
 
 .section {
@@ -56,6 +67,7 @@ p {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  
 }
 
 .card {
@@ -98,7 +110,7 @@ p {
 
 .card-title {
   font-family: 'Kanit', sans-serif;
-  font-size: 20ppx;
+  font-size: 20px;
   color: #666; 
   margin-top: 5px;
 }
@@ -186,4 +198,212 @@ font-size: 12px;
   font-family: 'Poppins', sans-serif;
   font-size: 18px;
   color: #666;
+}
+
+/*Second Gif*/
+.gif-section {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.gif-section-title {
+  font-family: 'Kanit', sans-serif;
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.second-gif-container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 20px; 
+}
+
+.gif-image2 {
+  width: 100%;
+  border-radius: 10px;
+}
+
+
+/* Estilos para las tarjetas verticales */
+.vertical-cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; 
+}
+
+.vertical-card {
+  display: flex;
+  align-items: center;
+}
+
+.vertical-card-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.vertical-card-image {
+  border-radius: 10px;
+}
+
+.vertical-cards-container {
+  display: flex;
+  flex-direction: column; 
+}
+
+.vertical-card {
+  display: flex;
+  margin-bottom: 20px; 
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.vertical-card-content {
+  flex: 1; 
+  padding: 20px;
+}
+
+.vertical-card h3 {
+  font-family: 'Kanit', sans-serif; 
+  font-size: 32px;
+  text-align: left;
+}
+
+.vertical-card p {
+  text-align: left;
+  font-size: 15px;
+}
+
+.vertical-card button {
+  background-color: #f0f0f0; 
+  color: #000; 
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'Poppins', sans-serif;
+  margin-left: auto;
+  font-size: 15px;
+}
+
+.vertical-card button:hover {
+  background-color: #ccc; 
+}
+
+.vertical-card-image {
+  max-width: 100%; 
+  max-height: 500px; 
+  border-radius: 10px;
+}
+
+.large-image-section {
+  text-align: center; 
+  margin-top: 40px; 
+}
+
+.large-image-section h2 {
+  font-family: 'Kanit', sans-serif; 
+  font-size: 32px; 
+  color: #333; 
+}
+
+.large-image-section p {
+  font-family: 'Poppins', sans-serif; 
+  font-size: 16px; 
+  color: #666; 
+}
+
+.large-image-container {
+  margin-top: 20px; 
+}
+
+.large-image {
+  width: 100%; 
+  max-width: 1200px; 
+  display: block; 
+  margin: 0 auto; 
+}
+
+/* Estilos para la sección de diseños en equipo */
+.diseños-en-equipo {
+  padding: 50px 0;
+}
+
+.titulo-descripcion {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.titulo-descripcion h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.titulo-descripcion p {
+  font-size: 18px;
+  color: #666;
+}
+
+.card {
+  height: 300px;
+  margin-left: 180px;
+  margin-right: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  color: transparent;
+  border: none;
+  box-shadow: none;
+
+}
+
+.card-textos {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-right: 15px; 
+  margin-left: 20px;
+}
+
+.DiseñoEquipos {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.DiseñoEquipos img {
+  width: 50px; 
+  margin-right: 10px; 
+}
+
+.DiseñoEquipos p {
+  max-width: 300px;
+  font-size: 12px;
+  color: #666;
+  text-align: left;
+  margin-right: 80px;
+}
+
+.card-imagen {
+  width: 500px; 
+  border-radius: 10px; 
+  margin-left: 5px;
+}
+
+.boton {
+  background-color: #8B3DFF; 
+  color: #ffffff; 
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.boton:hover {
+  background-color: #54249b; 
 }

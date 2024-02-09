@@ -1,4 +1,10 @@
 import gifImage from "../../assets/body1.gif";
+import gifImage2 from "../../assets/body2.gif";
+import plantillasImage from "../../assets/plantillas.png";
+import icon1 from '../../assets/icono1.png'; 
+import icon2 from '../../assets/icono2.png';
+import icon3 from '../../assets/icono3.png';
+import icon4 from '../../assets/icono4.png';
 import './Body.css';
 
 export function Body() {
@@ -41,6 +47,42 @@ export function Body() {
       label: "PASO 3",
       title: "Colabora, comparte o imprime",
       description: "Invita a otras personas a ver o editar tu diseño, o bien descárgalo, publícalo en tus redes sociales sin salir de Canva o envíalo a imprimir."
+    }
+  ];
+
+  const verticalCards = [
+    {
+      title: "Crea con IA",
+      description: "Redefine tu forma de crear con Estudio Mágico, nuestro paquete de herramientas con tecnología de la IA. Genera texto con la voz de tu marca usando Texto Mágico o transforma tus fotos con Edición Mágica.",
+      buttonText: "Descubrir ahora",
+      image: "https://static.canva.com/anon_home/benefits/benefits-magic-studio-fallback-en-1288x952.jpg", 
+    },
+    {
+      title: "Diseña con otras personas",
+      description: "Invita a tus amistades y a tu familia a diseñar contigo, o arma tu propio equipo para diseñar en conjunto. Nuestras funciones de colaboración te permiten comentar y trabajar en tiempo real en presentaciones, pizarras online, docs, videos o la planificación de una fiesta de cumpleaños.",
+      buttonText: "Empezar a diseñar",
+      image: "https://static.canva.com/anon_home/benefits/benefits-together-es-mx-1288x952.jpg", 
+    },
+    {
+      title: "Diseña e imprime sin salir de Canva",
+      description: "Convierte tus recuerdos en álbumes de fotos; tus diseños, en playeras; y la identidad de tu marca, en tarjetas de presentación, flyers o invitaciones. Imprime aquí mismo todo lo que necesites y te lo enviamos gratis a tu casa. ",
+      buttonText: "Imprime tu diseño",
+      image: "https://static.canva.com/anon_home/benefits/benefits-print-es-mx-1288x952.jpg",
+    },
+  ];
+
+  const DiseñoEquipos = [
+    { icono: icon1, 
+      texto: "Carpetas de equipo para ayudarte a organizarte, a guardar recursos de marca y a gestionar contenido" 
+    },
+    { icono: icon2, 
+      texto: "Diseña y planifica la publicación de tus posts de redes sociales desde Canva" 
+    },
+    { icono: icon3, 
+      texto: "Trabaja en equipo y en tiempo real con personas de distintos países, departamentos o empresas." 
+    },
+    { icono: icon4, 
+      texto: "Comentarios en los diseños para comunicarte, seguir creando contenido y resolver sugerencias en tiempo real" 
     }
   ];
 
@@ -92,6 +134,69 @@ export function Body() {
   </div>
 </section>
 
-    </div>
-  );
+<section className="section">
+      <h2 className="gif-section-title">Empresas de renombre que confían en Canva</h2>
+      <div className="second-gif-container">
+        <img src={gifImage2} alt="GIF" className="gif-image2" />
+      </div>
+    </section>
+
+    <section className="section">
+      <div className="vertical-cards-container">
+        {verticalCards.map((card, index) => (
+          <div className="vertical-card" key={index}>
+            {index % 2 === 0 ? (
+              <>
+                <div className="vertical-card-content">
+                  <h3>{card.title}</h3>
+                  <p>{card.description}</p>
+                  <button>{card.buttonText}</button>
+                </div>
+                <img src={card.image} alt={card.title} className="vertical-card-image" />
+              </>
+            ) : (
+              <>
+                <img src={card.image} alt={card.title} className="vertical-card-image" />
+                <div className="vertical-card-content">
+                  <h3>{card.title}</h3>
+                  <p>{card.description}</p>
+                  <button>{card.buttonText}</button>
+                </div>
+              </>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section className="large-image-section">
+  <h2>Plantillas para diseñar de todo</h2>
+  <p>Personaliza una plantilla de negocios o diseña algo más personal, como una invitación.</p>
+  <div className="large-image-container">
+    <img src={plantillasImage} alt="Imagen grande" className="large-image" />
+  </div>
+</section>
+
+<section className="diseños-en-equipo">
+      <div className="titulo-descripcion">
+        <h2>Crea tus mejores diseños en equipo.</h2>
+        <p>Prueba Canva para Equipos, la solución integral para que equipos de cualquier tamaño diseñen y colaboren en conjunto.</p>
+      </div>
+      <div className="card">
+        <div className="card-textos">
+          {DiseñoEquipos.map((item, index) => (
+            <div className="DiseñoEquipos" key={index}>
+              <img src={item.icono} alt={`Icono ${index + 1}`} />
+              <p>{item.texto}</p>
+            </div>
+          ))}
+        </div>
+        <img src="https://static.canva.com/anon_home/teams-es-MX-1150x850.png" alt="Imagen" className="card-imagen" />
+      </div>
+      <button className="boton">Prueba Canva para Equipos</button>
+    </section>
+
+  </div>
+);
 }
+

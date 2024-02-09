@@ -1,4 +1,7 @@
 .navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -56,8 +59,10 @@
 }
 
 .right-section {
-  display: flex; 
+  display: flex;
   align-items: center;
+  margin-right: 50px; 
+  margin-left: auto; 
 }
 
 .right-section button {
@@ -91,7 +96,7 @@
   color: #333;
   border-radius: 10px;
   height: 40px;
-  width: 121px;
+  width: 130px;
 }
 
 .btn-login:hover {
