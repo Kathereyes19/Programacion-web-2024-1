@@ -136,7 +136,7 @@ export function Body() {
         description: "Conoce cómo apoyamos a creadores y creadoras diversos y les damos voz a culturas de todas partes del mundo.",
         },
     ];
-
+    
   return (
     <div className="body">
       <section className="section">
@@ -251,7 +251,7 @@ export function Body() {
     </section>
 
     <section className="carousel-section">
-  <div className="carousel-title">
+  <div className="carousel-text">
     <h2>Tenemos muchas sorpresas para ti</h2>
     <p>Estas son algunas de nuestras mejores características que quizás no conoces</p>
   </div>
@@ -259,8 +259,10 @@ export function Body() {
     {CarruselCards.map((card, index) => (
       <div className="cardCarrusel" key={index}>
         <img src={card.image} alt={card.title} />
-        <h2>{card.title}</h2>
-        <p>{card.description}</p>
+        <div className="cardCarrusel-text">
+          <h2 className="carrusel-title">{card.title}</h2>
+          <p className="carrusel-description">{card.description}</p>
+        </div>
       </div>
     ))}
   </div>

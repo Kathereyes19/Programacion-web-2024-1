@@ -336,13 +336,13 @@ font-size: 12px;
 }
 
 .titulo-descripcion h2 {
-  font-size: 24px;
+  font-size: 32px;
   font-weight: bold;
   color: #333;
 }
 
 .titulo-descripcion p {
-  font-size: 18px;
+  font-size: 16px;
   color: #666;
 }
 
@@ -408,47 +408,49 @@ font-size: 12px;
   background-color: #6a2ec4; 
 }
 
-
-.carousel-section {
-  overflow-x: auto; 
-  white-space: nowrap; 
-}
-
 .carousel-container {
-  display: inline-flex; 
-  gap: 20px; 
+  display: flex;
+  overflow-x: auto; 
+  padding-bottom: 20px; 
 }
+
+.carousel-text {
+  text-align: center; 
+  margin-bottom: 10px; 
+}
+
+.carousel-text h2 {
+  font-size: 32px; 
+  margin-bottom: 10px; 
+}
+
+.carousel-text p {
+  font-size: 16px; 
+  color: #666;
+}
+
 
 .cardCarrusel {
   flex: 0 0 auto; 
   width: 300px; 
   padding: 20px; 
-  border: 1px solid #ccc; 
-  border-radius: 10px; 
+  margin-right: 20px; 
+  border-radius: 8px; 
+  text-align: left; 
 }
 
-.cardCarrusel  img {
-  max-width: 100%; 
-  height: auto; 
-  border-radius: 10px; 
+.cardCarrusel img {
+  width: 100%; 
+  border-radius: 8px; 
 }
 
-.cardCarrusel-content {
-  max-width: 10px;
-  height: 100%; 
-  display: flex; 
-  flex-direction: column;
-  justify-content: space-between; 
+.carrusel-title {
+  font-size: 15px; 
+  margin-top: 10px; 
 }
 
-.cardCarrusel  h2 {
-  font-size: 18px; 
-  margin-top: 10px;
-}
-
-.cardCarrusel p {
-  font-size: 10px; 
+.carrusel-description {
+  font-size: 12px; 
   color: #666; 
-  margin-top: 10px;
+  margin-top: 10px; 
 }
-
