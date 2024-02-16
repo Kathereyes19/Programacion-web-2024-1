@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.gif-section-title-companies {
+    font-family: 'Kanit', sans-serif;
+    font-size: 32px;
+    color: #333;
+  }
+  
+  .second-gif-container-companies {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .gif-image2-companies {
+    width: 100%;
+    max-width: 400px;
+  }
+  

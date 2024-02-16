@@ -1,0 +1,35 @@
+import ToolsCards from '../../constants/ToolsCards';
+import './ToolsCards.css';
+
+export function ToolsCards() {
+return (
+<section className="section-tools">
+  <div className="tools-cards-container">
+    {ToolsCards.map((card, index) => (
+      <div className="tools-card" key={index}>
+        {index % 2 === 0 ? (
+          <>
+            <div className="tools-card-content">
+              <h3>{card.title}</h3>
+              <p>{card.description}</p>
+              <button>{card.buttonText}</button>
+            </div>
+            <img src={card.image} alt={card.title} className="tools-card-image" />
+          </>
+        ) : (
+          <>
+            <img src={card.image} alt={card.title} className="tools-card-image" />
+            <div className="tools-card-content">
+              <h3>{card.title}</h3>
+              <p>{card.description}</p>
+              <button>{card.buttonText}</button>
+            </div>
+          </>
+        )}
+      </div>
+    ))}
+  </div>
+</section>
+
+)
+}
