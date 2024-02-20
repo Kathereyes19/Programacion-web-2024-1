@@ -6,7 +6,7 @@
   padding: 50px 0;
 }
 
-.p {
+.intro-content p {
   font-family: 'Poppins', sans-serif; 
   color: #171717;
 }
@@ -23,13 +23,13 @@
   margin-bottom: 20px;
 }
 
-.intro h2 {
+.intro-content h2 {
   font-family: 'Kanit', sans-serif;
   font-size: 52px;
   color: #333;
 }
 
-.intro p {
+.intro-content p {
   font-family: 'Poppins', sans-serif;
   font-size: 20px;
   color: #666;
@@ -42,8 +42,8 @@
   border-radius: 5px;
   padding: 10px 20px;
   cursor: pointer;
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
 }
 
 .intro-body-button:hover {

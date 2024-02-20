@@ -2,83 +2,97 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 .title-plans {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .card-container-plans {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-  }
-  
-  .card-plans {
-    flex: 0 1 400px;
-    margin-bottom: 20px;
-    padding: 32px 24px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    position: relative;
-  }
-  
-  .card-content-plans {
-    padding: 10px;
-  }
-  
-  .card-icon-plans {
-    width: 20px;
-    height: 20px;
-    margin-left: 5px;
-    margin-right: 300px;
-  }
-  
-  .card-button-plans {
-    background-color: #8B3DFF;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 8px 15px;
-    cursor: pointer;
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-    width: 100%;
-  }
-  
-  .card-button-plans:hover {
-    background-color: #6a2ec4;
-  }
-  
-  .card-title-plans {
-    font-family: 'Kanit', sans-serif;
-    font-size: 20px;
-    color: #666; 
-    margin-top: 5px;
-  }
-  
-  .card-text-plans {
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    color: #666;
-    margin: 30px;
-    text-align: left;
-  }
-  
-  .card-plans .card-button-plans {
-    max-width: 350px;
-    font-size: 12px;
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  
-  .additionalCondition p {
-    font-size: 15px;
-  }
-  
-  .additionalCondition u {
-    color: #8B3DFF; 
-    text-decoration: underline; 
-  }
-  
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.title-plans h2 {
+  font-family: 'Kanit', sans-serif;
+  font-size: 32px;
+  color: #333;
+}
+
+.card-container-plans {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card-plans {
+  flex: 0 1 400px;
+  margin-bottom: 20px;
+  padding: 32px 24px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.card-content-plans {
+  height: 250px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.card-icon-plans {
+  width: 30px;
+  height: 30px;
+  margin-left: 20px;
+  margin-bottom: 150px;
+}
+
+.card-button-plans {
+  background-color: #8B3DFF;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  width: 100%;
+}
+
+.card-button-plans:hover {
+  background-color: #6a2ec4;
+}
+
+.card-title-plans {
+  text-align: left;
+  font-family: 'Kanit', sans-serif;
+  font-size: 20px;
+  color: #666;
+  margin-top: 10px;
+  margin-left: 20px;
+
+}
+
+.card-text-plans {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #666;
+  margin-right: 10px;
+  margin-left: 5px;
+  text-align: left;
+}
+
+.card-plans .card-button-plans {
+  margin-top: 100px;
+  max-width: 350px;
+  font-size: 12px;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.additionalCondition p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+}
+
+.additionalCondition u {
+  color: #8B3DFF;
+  text-decoration: underline;
+}

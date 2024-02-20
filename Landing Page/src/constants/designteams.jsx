@@ -1,9 +1,9 @@
-import icon1 from '../../assets/icono1.png'; 
-import icon2 from '../../assets/icono2.png';
-import icon3 from '../../assets/icono3.png';
-import icon4 from '../../assets/icono4.png';
+import icon1 from '../assets/icono1.png'; 
+import icon2 from '../assets/icono2.png';
+import icon3 from '../assets/icono3.png';
+import icon4 from '../assets/icono4.png';
 
-const DesignTeams = [
+const designteams = [
     { icon: icon1, 
       text: "Carpetas de equipo para ayudarte a organizarte, a guardar recursos de marca y a gestionar contenido" 
     },
@@ -17,3 +17,4 @@ const DesignTeams = [
       text: "Comentarios en los diseños para comunicarte, seguir creando contenido y resolver sugerencias en tiempo real" 
     },
     ];
+    export default designteams

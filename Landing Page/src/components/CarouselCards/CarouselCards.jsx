@@ -1,4 +1,6 @@
-import CarouselCards from "../../constants/CarouselCards";
+import carouselcards from "../../constants/carouselcards";
+import './CarouselCards.css';
+
 
 export function CarouselCards() {
 return (
@@ -8,7 +10,7 @@ return (
     <p>Estas son algunas de nuestras mejores características que quizás no conoces</p>
   </div>
   <div className="carousel-container">
-    {CarouselCards.map((card, index) => (
+    {carouselcards.map((card, index) => (
       <div className="cardCarousel" key={index}>
         <img src={card.image} alt={card.title} />
         <div className="cardCarousel-text">

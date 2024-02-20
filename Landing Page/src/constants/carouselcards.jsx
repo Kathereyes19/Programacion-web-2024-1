@@ -1,13 +1,13 @@
-import carrusel1 from "../../assets/carrusel1.png";
-import carrusel2 from "../../assets/carrusel2.png";
-import carrusel3 from "../../assets/carrusel3.png";
-import carrusel4 from "../../assets/carrusel4.png";
-import carrusel5 from "../../assets/carrusel5.png";
-import carrusel6 from "../../assets/carrusel6.png";
-import carrusel7 from "../../assets/carrusel7.png";
-import carrusel8 from "../../assets/carrusel8.png";
+import carrusel1 from "../assets/carrusel1.png";
+import carrusel2 from "../assets/carrusel2.png";
+import carrusel3 from "../assets/carrusel3.png";
+import carrusel4 from "../assets/carrusel4.png";
+import carrusel5 from "../assets/carrusel5.png";
+import carrusel6 from "../assets/carrusel6.png";
+import carrusel7 from "../assets/carrusel7.png";
+import carrusel8 from "../assets/carrusel8.png";
 
-    const CarouselCards = [
+    const carouselcards = [
       { image: carrusel1,
       title: "Tenemos un Marketplace de apps",
       description: "Accede a las funciones con IA más destacadas, descubre más contenido o integra Canva con las plataformas que ya tengas.",
@@ -49,3 +49,5 @@ import carrusel8 from "../../assets/carrusel8.png";
         description: "Conoce cómo apoyamos a creadores y creadoras diversos y les damos voz a culturas de todas partes del mundo.",
         },
     ];
+
+    export default carouselcards

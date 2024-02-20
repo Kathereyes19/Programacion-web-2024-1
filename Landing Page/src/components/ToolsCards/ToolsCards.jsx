@@ -1,11 +1,11 @@
-import ToolsCards from '../../constants/ToolsCards';
+import toolscards from "../../constants/toolscards"
 import './ToolsCards.css';
 
 export function ToolsCards() {
 return (
 <section className="section-tools">
   <div className="tools-cards-container">
-    {ToolsCards.map((card, index) => (
+    {toolscards.map((card, index) => (
       <div className="tools-card" key={index}>
         {index % 2 === 0 ? (
           <>

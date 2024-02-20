@@ -1,4 +1,4 @@
-const ToolsCards = [
+const toolscards = [
     {
       title: "Crea con IA",
       description: "Redefine tu forma de crear con Estudio Mágico, nuestro paquete de herramientas con tecnología de la IA. Genera texto con la voz de tu marca usando Texto Mágico o transforma tus fotos con Edición Mágica.",
@@ -18,3 +18,4 @@ const ToolsCards = [
       image: "https://static.canva.com/anon_home/benefits/benefits-print-es-mx-1288x952.jpg",
     },
   ];
+  export default toolscards

@@ -1,4 +1,4 @@
-const PlansCards = [
+const planscards = [
     {
       title: "Canva Gratis",
       text: "Para cualquier persona que quiera diseñar lo que sea por su cuenta, con su familia, con sus amistades o con quien quiera. No se necesita tener experiencia.",
@@ -17,3 +17,5 @@ const PlansCards = [
       buttonText: "Empieza tu prueba gratis de Canva para Equipos"
     }
   ];
+
+  export default planscards

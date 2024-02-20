@@ -1,4 +1,4 @@
-const StepsCards = [
+const stepscards = [
     {
       image: "https://content-management-files.canva.com/a9cdf47a-b256-4b62-aa8a-4b48a83c85b5/walkthrough-start-univ-728x584.jpg",
       label: "PASO 1",
@@ -18,3 +18,4 @@ const StepsCards = [
       description: "Invita a otras personas a ver o editar tu diseño, o bien descárgalo, publícalo en tus redes sociales sin salir de Canva o envíalo a imprimir."
     }
   ];
+  export default stepscards
