@@ -55,3 +55,26 @@
   max-width: 800px;
   margin: 0 auto;
 }
+
+
+@media only screen and (max-width: 725px) {
+
+  .intro-content h2 {
+    font-size: 36px; 
+    text-align: center;
+  }
+
+  .intro-content p {
+    font-size: 16px; 
+  }
+
+  .intro-body-button {
+    font-size: 14px; 
+    text-align: center;
+  }
+
+  .intro-gif-container img{
+    max-width: 100%;
+    margin-top: 20px;
+  }
+}

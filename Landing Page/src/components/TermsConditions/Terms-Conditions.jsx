@@ -1,4 +1,4 @@
-import './TermsConditions.css';
+import './Terms-Conditions.css';
 import socialmedia from "../../assets/socialmedia.png";
 
   export function TermsConditions (){
