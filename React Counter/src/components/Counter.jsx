@@ -12,25 +12,29 @@ export function Counter() {
   const increaseCount = () => {
     setCount(count + 1);
     setShowIncreaseImage(true);
-    setTimeout(() => setShowIncreaseImage(false), 2000); // Duración fija de 2 segundos
+    setTimeout(() => setShowIncreaseImage(false), 2000); 
   };
 
   const decreaseCount = () => {
     if (count > 0) {
       setCount(count - 1);
       setShowDecreaseImage(true);
-      setTimeout(() => setShowDecreaseImage(false), 2000); // Duración fija de 2 segundos
+      setTimeout(() => setShowDecreaseImage(false), 2000); 
     }
   };
 
   return (
+    <section className='CounterBody'>
     <div className="counter-container">
-      <img src={roadBack} className='background-image' alt="Carretera" />
+      <img src={roadBack} className='background-image' alt="Road" />
+      <div className='counter-container-buttons'>
       <h1>{count}</h1>
-      <button onClick={decreaseCount}>Reducir</button>
-      <button onClick={increaseCount}>Aumentar</button>
-      {showIncreaseImage && <img src={redcar1} className="moving-image-increase" alt="Carro aumentando" />}
-      {showDecreaseImage && <img src={redcar2} className="moving-image-decrease" alt="Carro disminuyendo" />}
-    </div>
+      <button className="Back" onClick={decreaseCount}>Back to start</button>
+      <button className="Go" onClick={increaseCount}>Go to the race</button>
+      {showIncreaseImage && <img src={redcar1} className="moving-image-increase" />}
+      {showDecreaseImage && <img src={redcar2} className="moving-image-decrease" />}
+      </div>
+      </div>
+    </section>
   );
 }
