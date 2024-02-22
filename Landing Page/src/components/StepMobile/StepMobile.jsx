@@ -9,7 +9,9 @@ export function StepMobile() {
   const toggleCardExpansion = (index) => {
     setExpandedCards(prevState => {
       const newState = [...prevState];
-      newState[index] = !newState[index];
+      const isAlreadyExpanded = newState[index]; 
+      newState.fill(false); 
+      newState[index] = !isAlreadyExpanded; 
       return newState;
     });
   };
