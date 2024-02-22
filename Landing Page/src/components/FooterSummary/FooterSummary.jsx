@@ -4,7 +4,6 @@ import './FooterSummary.css';
 export function FooterSummary() {
     return (
       <section className="footer-container">
-         <hr className="footer-line" />
         <section className="footer-section">
           <div className="footer-card-container">
             {footerdata.map((card, index) => (

@@ -53,3 +53,20 @@
     margin-top: 10px; 
   }
   
+  @media only screen and (max-width: 844px) {
+    .carousel-text h2 {
+      margin-top: 5px;
+      margin-left: 15px;
+      margin-right: 15px;
+      font-size: 24px; 
+    }
+
+    .carousel-text p {
+      font-size: 15px; 
+    }
+
+    .carousel-container {
+      padding-left: 15px;
+    }
+    
+  }

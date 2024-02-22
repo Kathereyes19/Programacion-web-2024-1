@@ -39,3 +39,9 @@
 .footer-card-item:hover {
   color: #8B3DFF;
 }
+
+@media only screen and (max-width: 844px) {
+  .footer-card-container {
+    display: none;
+  }
+}
