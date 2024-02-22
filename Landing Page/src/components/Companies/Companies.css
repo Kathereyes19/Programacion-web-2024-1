@@ -17,4 +17,22 @@
     width: 100%;
     max-width: 1300px;
   }
+
+  .image-companies img{
+    display: none;
+  }
   
+  @media only screen and (max-width: 844px) {
+    .gif-section-title-companies {
+      font-size: 24px;
+    }
+  
+    .gif-image2-companies {
+      display: none;
+    }
+  
+    .image-companies img{
+    display: block;
+    width: 100%;
+        }
+  }
