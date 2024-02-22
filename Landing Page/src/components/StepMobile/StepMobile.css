@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.section-steps-mobile {
+  display: none;
+}
+@media only screen and (max-width: 844px) {
+  .section-steps-mobile {
+    display: block; 
+    padding: 18px;
+  }
+
+  .section-title-step-mobile {
+    font-family: 'Kanit', sans-serif;
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+  }
+
+  .top-image-mobile {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 20px;
+  }
+
+  .button-container-mobile {
+    display: flex;
+    flex-direction: column; 
+    margin-bottom: 20px;
+    text-align: left;
+  }
+
+  .button-container-mobile button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    width: 100%;
+    text-align: left;
+    font-family: 'Kanit', sans-serif;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f0f0f0; 
+    color: #212121; 
+    margin-bottom: 10px; 
+    cursor: pointer;
+  }
+
+  .button-container-mobile button:hover {
+  background-color: #dadada;
+  }
+  
+  .button-icon-mobile {
+    margin-left: auto;
+    margin-right: 0;
+    width: 15px;
+  }
+  
+  .card-container-steps-mobile {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .card-steps-mobile {
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .card-content-mobile {
+    font-family: 'Poppins', sans-serif;
+    padding: 20px; 
+  }
+  
+  .card-description-steps-mobile {
+    margin-top: 10px;
+    font-size: 15px;
+    word-wrap: break-word; 
+  }
+}  

@@ -100,7 +100,9 @@
 
 
 @media only screen and (max-width: 767px) {
-
+  .section-plans {
+    padding: none;
+  }
   .title-plans h2 {
     font-size: 24px;
     margin-top: none;
