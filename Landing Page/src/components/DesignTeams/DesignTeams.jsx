@@ -9,6 +9,7 @@ return (
     <p>Prueba Canva para Equipos, la solución integral para que equipos de cualquier tamaño diseñen y colaboren en conjunto.</p>
   </div>
   <div className="design-team-card">
+  <img src="https://static.canva.com/anon_home/teams-es-MX-1150x850.png" className="design-team-image" />
     <div className="design-team-texts">
       {designteams.map((item, index) => (
         <div className="design-team-item" key={index}>
@@ -17,7 +18,6 @@ return (
         </div>
       ))}
     </div>
-    <img src="https://static.canva.com/anon_home/teams-es-MX-1150x850.png" className="design-team-image" />
   </div>
   <button className="design-team-button">Prueba Canva para Equipos</button>
 </section>

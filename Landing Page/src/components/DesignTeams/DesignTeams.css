@@ -63,7 +63,7 @@
   }
   
 .design-team-button {
-  margin-left: 600px;
+  margin-left: 550px;
   background-color: #8B3DFF; 
   color: #ffffff; 
   border: none;
@@ -77,4 +77,40 @@
 
 .design-team-button:hover {
   background-color: #6a2ec4; 
+}
+@media only screen and (max-width: 844px) {
+  .design-team-title-description h2 {
+    font-size: 24px;
+  }
+
+  .design-team-title-description p {
+    font-size: 14px;
+    margin: 10px;
+  }
+
+  .design-team-image {
+    width: 380px;
+    border-radius: 10px;
+    margin-top: 5px;
+  }
+
+  .design-team-card {
+    flex-direction: column; 
+    margin-left: 20px; 
+    margin-right: 20px; 
+    margin-top: 20px; 
+  }
+  
+  .design-team-item p {
+    max-width: 100%; 
+    font-size: 12px;
+    margin-right: 0; 
+    margin-top: 5px; 
+  }
+
+  .design-team-button {
+    font-size: 14px;
+    margin-top: 5px;
+    margin-left: 80px;
+  }
 }

@@ -1,4 +1,5 @@
 import templatesImage from "../../assets/templates.png";
+import templatesMobile from "../../assets/templatesMobile.jpeg";
 import './Templates.css';
 
 export function Templates() {
@@ -9,6 +10,7 @@ return (
   <div className="templates-image-container">
     <img src={templatesImage} className="templates-image" />
   </div>
+    <img src={templatesMobile} className="templates-image-mobile" />
 </section>
 );
 }

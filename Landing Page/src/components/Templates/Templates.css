@@ -28,4 +28,26 @@
     display: block; 
     margin: 0 auto; 
   }
+
+  .templates-image-mobile {
+    display: none;
+  }
+
+  @media only screen and (max-width: 844px) {
+    .templates-image-section h2 { 
+      font-size: 24px; 
+    }
+
+    .templates-image-section p {
+      font-size: 14px; 
+    }
   
+    .templates-image {
+      display: none; 
+    } 
+
+    .templates-image-mobile {
+      display: block;
+      width: 100%; 
+    }
+  }
