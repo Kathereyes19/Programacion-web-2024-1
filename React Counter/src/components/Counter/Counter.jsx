@@ -13,6 +13,7 @@ export function Counter() {
   const [timer, setTimer] = useState(null);
   const [gameOver, setGameOver] = useState(false);
   const [showResetImage, setShowResetImage] = useState(false);
+  const [timeRemaining, setTimeRemaining] = useState(60);
 
   const startTimer = () => {
     setTimer(setTimeout(() => {
@@ -22,16 +23,10 @@ export function Counter() {
         setCount(0);
         setGameOver(false);
         setShowResetImage(false);
+        setTimeRemaining(60); 
         startTimer();
-      }, 2000); // 2000 milisegundos = 2 segundos
-    }, 60000)); // 60000 milisegundos = 1 minuto
-  };
-
-  const resetGame = () => {
-    setCount(0);
-    setGameOver(false);
-    clearTimeout(timer);
-    startTimer();
+      }, 2000); 
+    }, 60000)); 
   };
 
   useEffect (() => {
@@ -40,9 +35,11 @@ export function Counter() {
   }, []);
 
   const increaseCount = () => {
-    setCount(count + 1);
-    setShowIncreaseImage(true);
-    setTimeout(() => setShowIncreaseImage(false), 2000); 
+    if (!gameOver) {
+      setCount(count + 1);
+      setShowIncreaseImage(true);
+      setTimeout(() => setShowIncreaseImage(false), 2000); 
+    }
   };
 
   const decreaseCount = () => {
@@ -53,17 +50,46 @@ export function Counter() {
     }
   };
 
+  // Actualizar el tiempo restante cada segundo
+  useEffect(() => {
+    if (!gameOver) {
+      const interval = setInterval(() => {
+        setTimeRemaining(prevTime => {
+          if (prevTime === 0) {
+            clearInterval(interval);
+            setGameOver(true);
+            setShowResetImage(true);
+            setTimeout(() => {
+              setCount(0);
+              setGameOver(false);
+              setShowResetImage(false);
+              setTimeRemaining(60); // Reiniciar el tiempo restante
+              startTimer();
+            }, 2000);
+            return 0;
+          }
+          return prevTime - 1;
+        });
+      }, 1000); // 1000 milisegundos = 1 segundo
+
+      // Limpiar el intervalo cuando el componente se desmonta o el juego termina
+      return () => clearInterval(interval);
+    }
+  }, [gameOver]);
+
+
   return (
     <section className='CounterBody'>
       <div className="counter-container">
         <img src={roadBack} className='background-image' alt="Road" />
         <div className='counter-container-buttons'>
-          <h1>{count}</h1>
+          <h1 className='Countertext'>{count}</h1>
           <Buttons onClick={decreaseCount} text="Back to start" type="Back" />
           <Buttons onClick={increaseCount} text="Go running" type="Go" />
+          <h1 className='Timertext'>Remaining time: {timeRemaining} seconds</h1>
           {showIncreaseImage && <img src={redcar1} className="moving-image-increase" />}
           {showDecreaseImage && <img src={redcar2} className="moving-image-decrease" />}
-          {gameOver && <img src={resetimage} className="game-over-image" />}
+          {showResetImage && <img src={resetimage} className="game-over-image" />}
         </div>
       </div>
     </section>
