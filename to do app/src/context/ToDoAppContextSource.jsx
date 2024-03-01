@@ -6,20 +6,20 @@ export function ToDoAppContextSource ({ children }) {
     const initFilterState = JSON.parse(window.localStorage.getItem('Filters')) ?? 'all'
 
     const [Task, setTask] = useState(initTaskState)
-    const [currentFilter, setFilter] = useState(initFilterState)
+    const [currentFilters, setFilters] = useState(initFilterState)
     const [TaskToDelete, setTaskToDelete] = useState ([])
 
     return (
-        <ToDoAppContext.Source value = {{
+        <ToDoAppContext.Provider value = {{
             Task,
             setTask,
-            currentFilter,
-            setFilter,
+            currentFilters,
+            setFilters,
             TaskToDelete,
             setTaskToDelete
         }}
         >
             {children}
-        </ToDoAppContext.Source>
+        </ToDoAppContext.Provider>
     )
 }

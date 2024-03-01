@@ -1,21 +1,21 @@
-export default function Button ({ className, onClick, disable }) {
+export function Button ({ className, onClick, disabled }) {
     let content;
     
-    if (type === 'add') {
+    if (className === 'add') {
         content = '+';
     } 
-    else if (type === 'erase') {
+    else if (className === 'erase') {
         content = 'x';
     }
-    else if (type === 'clearAll') {
+    else if (className === 'clearAll') {
         content = 'Clear';
     }
     
     return (
         <div>
-            <button className= {`btn-${type}`} onClick={onClick} disable={disable}>
+            <button className={`btn-${className}`} onClick={onClick} disabled={disabled}>
                 {content} 
             </button>
         </div>
     );
-    }
+}
