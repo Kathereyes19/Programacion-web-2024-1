@@ -1,5 +1,5 @@
 
-import { filters } from '../../const/filters'
+import { filters } from '../../constants/filters'
 import { useTasks } from '../../Hooks/useTasks'
 
 export function Filter () {
@@ -25,7 +25,7 @@ export function Filter () {
                 name='filter'
                 onChange={handleChange}
                 checked={(currentFilter === value)}
-                className={styles.radioInput}
+                className="radioInput"
               />
               <label htmlFor={id} className="inputLabel">{label}</label>
             </li>

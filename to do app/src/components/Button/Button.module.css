@@ -1,0 +1,48 @@
+:root {
+    --DarkBlue: #002244;
+    --Blue: #0072CE;
+    --DarkGreen: #00594C;
+    --Green: #00A77E;
+  }
+  
+  button {
+    border-radius: 50px;
+    border: 1px solid transparent;
+    color: var(--DarkBlue);
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s;
+  }
+  
+  .add {
+    background-color: var(--Blue);
+    width: 12vh;
+    height: 7vh;
+    margin: 2vh 0;
+    padding: 2vh 3vh;
+    box-shadow: -3px 0 6px rgba(0, 114, 206, 0.8);
+  }
+  
+  .erase {
+    border: 1px solid var(--DarkPink);
+    background-color: white;
+    width: 5vh;
+    height: 5vh;
+    font-size: small;
+    color: var(--DarkPink);
+    transition: all 0.25s;
+  }
+  
+  .clearAll {
+    background-color: rgba(0, 167, 126, 0.3);
+    border: 2px solid var(--DarkPink);
+    color: white;
+    font-size: small;
+    width: 12vh;
+    height: 4vh;
+    margin: 0;
+    padding: 0.5vh;
+    box-shadow: -3px 0 6px rgba(0, 167, 126, 0.8);
+  }
+  

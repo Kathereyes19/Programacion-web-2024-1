@@ -1,11 +1,11 @@
 import { useEffect, useContext } from 'react'
-import { TodoContext } from '../context/TodoContext'
+import { TodoContext } from '../context/ToDoAppContext'
 
 export const useTasks = () => {
   const context = useContext(TodoContext)
 
   if (!context) {
-    throw new Error('This component sould be within a TodoContextrovider Component')
+    throw new Error('This component should be within a TodoContextProvider Component')
   }
   const {
     tasks,
@@ -18,13 +18,11 @@ export const useTasks = () => {
 
   useEffect(() => {
     window.localStorage.setItem('Tasks', JSON.stringify(tasks))
-  }, [tasks]
-  )
+  }, [tasks])
 
   useEffect(() => {
     window.localStorage.setItem('Filter', JSON.stringify(currentFilter))
-  }, [currentFilter]
-  )
+  }, [currentFilter])
 
   const createTasks = (text) => {
     const newTask = {
@@ -51,6 +49,7 @@ export const useTasks = () => {
       return task
     })
     setTasks(newTasks)
+  } // Cierre de la función handleToggle
 
   const handleDelete = (data) => {
     console.log(data)
@@ -93,20 +92,17 @@ export const useTasks = () => {
     }, 500)
   }
 
-  return (
-    {
-      currentFilter,
-      createTasks,
-      hasTasks,
-      handleToggle,
-      handleDelete,
-      handleFilterChange,
-      filteredTasks,
-      completedTasks,
-      allTasks,
-      handleDeleteAll,
-      tasksToDelete
-    }
-  )
-}
+  return {
+    currentFilter,
+    createTasks,
+    hasTasks,
+    handleToggle,
+    handleDelete,
+    handleFilterChange,
+    filteredTasks,
+    completedTasks,
+    allTasks,
+    handleDeleteAll,
+    tasksToDelete
+  }
 }

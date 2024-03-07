@@ -13,11 +13,11 @@ export function Form () {
   } = useForm(createTasks)
 
   return (
-    <form onSubmit={handleSubmit} className={styles.addDiv}>
+    <form onSubmit={handleSubmit} className="addDiv">
       <input
         type='text'
         placeholder='Name your task'
-        className={styles.taskInput}
+        className="taskInput"
         value={inputValue}
         onChange={handleChange}
       />

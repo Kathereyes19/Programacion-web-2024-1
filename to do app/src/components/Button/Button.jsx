@@ -1,3 +1,5 @@
+import styles from './Button.module.css'
+
 export function Button ({ className, onClick, disabled }) {
   let btnStyle, content
 
