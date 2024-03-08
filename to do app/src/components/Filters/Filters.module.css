@@ -1,0 +1,37 @@
+:root {
+    --DarkBlue: #002244;
+    --Blue: #0072CE;
+    --DarkGreen: #00594C;
+    --Green: #00A77E;
+  }
+  
+  .ulFlex {
+    display: flex;
+    justify-content: space-around;
+    margin: 3vh 0;
+  }
+  
+  .inputLi {
+    display: inline-block;
+  }
+  
+  .radioInput {
+    display: none;
+  }
+  
+  .inputLabel {
+    background-color: rgba(0, 114, 206, 0.3); 
+    padding: 0.7vh 2vh;
+    border-radius: 50px;
+    transition: 0.25s;
+  }
+  
+  .inputLabel:hover {
+    cursor: pointer;
+    background-color: rgba(0, 114, 206, 0.5); 
+  }
+  
+  .radioInput:checked + .inputLabel {
+    background-color: var(--Green);
+  }
+  

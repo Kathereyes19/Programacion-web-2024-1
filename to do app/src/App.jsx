@@ -1,3 +1,4 @@
+import { Header } from "./components/Header/Header"
 import { Form } from "./components/Form/Form"
 import { Filter } from "./components/Filters/Filters"
 import { List } from "./components/List/List"
@@ -6,15 +7,14 @@ import { TodoContextProvider } from './context/ToDoAppContextProvider'
 
 export default function App (){
     return(
-        <div className='animate__animated animate__fadeInDown'>
         <>
         <TodoContextProvider>
+        <Header/>
         <Form/>
         <Filter/>
         <List/>
         <Footer/>
         </TodoContextProvider>
         </>
-        </div>
     ) 
 }

@@ -1,0 +1,53 @@
+:root {
+    --DarkBlue: #002244;
+    --Blue: #0072CE;
+    --DarkGreen: #00594C;
+    --Green: #00A77E;
+}
+
+body {
+    line-height: 1.5;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: var(--DarkBlue);
+    margin: 0;
+    display: flex;
+    place-items: center;
+    min-width: 320px;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+}
+
+#app {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.Header {
+    padding: 1vh; /* Ajuste de padding */
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color de fondo de la barra de desplazamiento */
+    border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--Green); /* Color del pulgar de la barra de desplazamiento */
+    border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--Blue); /* Color del pulgar de la barra de desplazamiento al pasar el cursor */
+}
