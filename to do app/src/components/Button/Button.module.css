@@ -18,18 +18,19 @@
   }
   
   .erase {
-    border: 1px solid var(--DarkPink);
+    border: 1px solid var(--DarkBlue);
     background-color: white;
     width: 5vh;
     height: 5vh;
     font-size: small;
-    color: var(--DarkPink);
+    color: var(--DarkBlue);
     transition: all 0.25s;
+    box-shadow: 0 0 6px rgba(119, 180, 245, 0.8);
   }
   
   .clearAll {
     background-color: var(--Blue);
-    border: 2px solid var(--DarkPink);
+    border: 2px solid var(--DarkBlue);
     color: white;
     font-size: small;
     width: 12vh;

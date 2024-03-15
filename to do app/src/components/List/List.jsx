@@ -75,9 +75,7 @@ export function List () {
             className={styles.checkbox}
             onChange={handleCheckboxChange}
           />
-          <label htmlFor='check' data-content={text}>
-            <strong>{text}</strong>
-          </label>
+        <p className={`${styles.taskText} ${completed ? styles.completed : ''}`}>{text}</p>
         </div>
         <div className={styles.taskBottom}>
           <p>Description: {description}</p>
