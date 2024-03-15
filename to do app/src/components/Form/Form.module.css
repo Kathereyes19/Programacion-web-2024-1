@@ -1,23 +1,41 @@
-.addDiv{
+.formContainer {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 2vh 4vh;
-    padding: 1vh 0  1vh 2vh;
-    border-radius: 100px;
-    background-color: white;
-    height: 5vh;
-}
-
-/* Input */
-.taskInput{
-    font-size: medium;
-    padding: 0 2vh;
-    width: 100%;
-    height: 3vh;
-    border: none;
-    border-radius: 100px;
-    &:focus{
-        outline: none;
-    }
+    flex-direction: column;
+    gap: 0.8rem; /* Espacio entre los elementos */
   }
+  
+  .inputContainer {
+    font-size: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* Espacio entre los elementos */
+  }
+  .priorityContainer {
+    width: 106%; /* Ancho del contenedor igual al 100% del contenedor padre */
+    font-size: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* Espacio entre los elementos */
+  }
+
+  .inputContainer label,
+  .priorityContainer label {
+  font-size: 15px; /* Tamaño de la fuente */
+  text-align: left; /* Alineación a la izquierda */
+}
+  
+  .taskInput {
+    font-size: medium;
+    padding: 0.5rem 1rem; /* Modificamos el padding */
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+  }
+  
+  .selectInput {
+    font-size: medium;
+    padding: 0.5rem 1rem; /* Modificamos el padding */
+    border: none;
+    border-radius: 10px;
+  }
+  

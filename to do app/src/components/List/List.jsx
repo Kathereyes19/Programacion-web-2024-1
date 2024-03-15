@@ -12,7 +12,10 @@ export function List () {
       handleToggle
     } = useTasks()
   
+  // Utiliza el hook useTasks para obtener el estado y las funciones relacionadas con las tareas.
+
     return (
+      // Dentro de esta lista, se muestran las tareas.
       <div className={styles.card}>
         <ul className={styles.list}>
           {hasTasks
@@ -20,18 +23,20 @@ export function List () {
               const deleteAllAnimation = tasksToDelete.includes(item.id)
                 ? 'animate__animated animate__fadeOutRightBig'
                 : ''
+              // Se utiliza un operador ternario para verificar si hay tareas presentes.
               return (
                 <Task
                   key={item.id}
                   item={item}
-                  onToggle={handleToggle}
+                  onToggle={handleToggle} // función para manejar el cambio de estado de la tarea.
                   onClick={handleDelete}
                   animationClass={item.animationClass || ''}
                   deleteAllAnimation={deleteAllAnimation}
                 />
               )
             })
-            : <p className={`${styles.altText} animate__animated animate__fadeIn`}>There are no tasks to show</p>}
+          
+            : <p className={`${styles.altText}`}>There are no tasks to show</p>}
         </ul>
   
       </div>
@@ -39,42 +44,48 @@ export function List () {
   }
   
   function Task ({ item, onToggle, onClick, deleteAllAnimation }) {
-    const [animationClass, setAnimationClass] = useState('')
+    const [animationClass, setAnimationClass] = useState('');
   
-    const { id, text, completed } = item
+    const { id, text, description, priority, completed } = item;
   
     const handleCheckboxChange = ({ target }) => {
-      const { checked } = target
-      onToggle(
-        {
-          id,
-          completed: checked
-        })
-    }
+      const { checked } = target;
+      onToggle({
+        id,
+        completed: checked
+      });
+    };
   
-    const handleDelete = () => {
-      setAnimationClass('animate__animated animate__fadeOutRightBig')
-  
+    const handleDelete = () => {  
       setTimeout(() => {
-        onClick({ id })
-      }, 500)
-    }
+        onClick({ id });
+      }, 500);
+    };
   
     return (
       <div
         key={id}
-        className={`${styles.task} animate__animated animate__backInDown ${animationClass} ${deleteAllAnimation} `}
+        className={`${styles.task} ${animationClass} ${deleteAllAnimation} `}
       >
-        <input
-          type='checkbox'
-          id='check'
-          checked={completed}
-          className={styles.checkbox}
-          onChange={handleCheckboxChange}
-        />
-        <label htmlFor='check' data-content={text}>{text}</label> {/* el data-content es para que funcione el tachado del css */}
-        <Button className='erase' onClick={handleDelete} />
+        <div className={styles.taskTop}>
+          <input
+            type='checkbox'
+            id='check'
+            checked={completed}
+            className={styles.checkbox}
+            onChange={handleCheckboxChange}
+          />
+          <label htmlFor='check' data-content={text}>
+            <strong>{text}</strong>
+          </label>
+        </div>
+        <div className={styles.taskBottom}>
+          <p>Description: {description}</p>
+          {priority !== 'None' && <p>Priority: {priority}</p>}
+          <Button className='erase' onClick={handleDelete} />
+        </div>
       </div>
-    )
+    );
   }
+  
   
