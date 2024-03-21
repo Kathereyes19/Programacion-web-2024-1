@@ -7,7 +7,7 @@ const generateId = () => {
 };
 
 export const useTasks = () => {
-  const { state, dispatch } = useContext(TodoContext);
+  const { state, dispatch, handleDeleteAll } = useContext(TodoContext); // Modificado para incluir handleDeleteAll en el contexto
   const { tasks, currentFilter } = state;
 
   const createTask = (taskData) => {
@@ -51,6 +51,8 @@ export const useTasks = () => {
     deleteTask,
     setFilter,
     completedTasks,
-    allTasks
+    allTasks,
+    handleDeleteAll // Incluyendo handleDeleteAll en el retorno del hook
   };
 };
+

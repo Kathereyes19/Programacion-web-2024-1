@@ -20,6 +20,8 @@ const todoReducer = (state, action) => {
         ...state,
         tasks: state.tasks.filter((task) => task.id !== action.payload),
       };
+    case 'DELETE_ALL_TASKS':
+      return { ...state, tasks: [] }; // Borrar todas las tareas
     case 'SET_FILTER':
       return { ...state, currentFilter: action.payload };
     default:
@@ -64,8 +66,12 @@ export const TodoContextProvider = ({ children }) => {
     window.localStorage.setItem('Filter', JSON.stringify(state.currentFilter));
   }, [state.currentFilter]);
 
+  const handleDeleteAll = () => {
+    dispatch({ type: 'DELETE_ALL_TASKS' });
+  };
+
   return (
-    <TodoContext.Provider value={{ state, dispatch }}>
+    <TodoContext.Provider value={{ state, dispatch, handleDeleteAll }}>
       {children}
     </TodoContext.Provider>
   );
