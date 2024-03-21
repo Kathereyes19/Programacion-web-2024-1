@@ -1,12 +1,27 @@
-export const ToDoReducer = (state, action) => {
+export const todoReducer = (state, action) => {
   switch (action.type) {
-    case 'SET_TASKS':
-      return { ...state, tasks: action.payload };
+    case 'ADD_TASK':
+      return { ...state, tasks: [...state.tasks, action.payload] };
+    case 'TOGGLE_TASK':
+      return {
+        ...state,
+        tasks: state.tasks.map((task) =>
+          task.id === action.payload.id
+            ? { ...task, completed: action.payload.completed }
+            : task
+        ),
+      };
+    case 'DELETE_TASK':
+      return {
+        ...state,
+        tasks: state.tasks.filter((task) => task.id !== action.payload),
+      };
+    case 'DELETE_ALL_TASKS':
+      return { ...state, tasks: [] }; // Borrar todas las tareas
     case 'SET_FILTER':
       return { ...state, currentFilter: action.payload };
-    case 'SET_TASKS_TO_DELETE':
-      return { ...state, tasksToDelete: action.payload };
     default:
       return state;
   }
 };
+

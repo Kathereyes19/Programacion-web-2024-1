@@ -3,19 +3,26 @@ import { filters } from '../../constants/filters';
 import { useTasks } from '../../Hooks/useTasks'; // Importa el hook useTasks
 
 export function Filter() {
-  const { currentFilter, setFilter } = useTasks(); // Usa el hook useTasks
+  const { 
+    currentFilter, 
+    setFilter 
+  } = useTasks(); // Usa el hook useTasks
 
   const handleChange = ({ target }) => {
     setFilter(target.value);
-  };
+  }; // se utilizará para manejar los cambios en la selección de filtro.
+  
+  // Utiliza el hook useTasks para obtener el filtro actual (currentFilter) 
+  // y la función para cambiar el filtro (handleFilterChange).
 
   return (
     <ul className={styles.ulFlex}>
       {filters.map(({ id, label, value }) => {
         return (
+        // Por cada elemento del arreglo, se genera un elemento de lista (li) que representa una opción de filtro.
           <li key={id} className={styles.inputLi}>
             <input
-              type='radio'
+              type='radio' // Indica que es un botón de radio.
               id={id}
               value={value}
               name='filter'

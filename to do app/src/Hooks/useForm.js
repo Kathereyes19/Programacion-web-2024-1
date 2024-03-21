@@ -1,26 +1,9 @@
 import { useReducer } from 'react';
-
-const initInputValue = {
+import { formReducer } from '../reducers/formReducer';
+export const initInputValue = {
     taskName: '',
     description: '',
     priority: ''
-};
-
-const formReducer = (state, action) => {
-    switch (action.type) {
-        case 'SET_INPUT_VALUES':
-            return {
-                ...state,
-                ...action.payload
-            };
-        case 'RESET_INPUT_VALUES':
-            return {
-                ...state,
-                ...initInputValue
-            };
-        default:
-            return state;
-    }
 };
 
 export const useForm = (createTask) => {

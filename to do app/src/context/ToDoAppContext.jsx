@@ -1,32 +1,14 @@
-import React, { createContext, useEffect, useReducer } from 'react';
+import { createContext, useEffect, useReducer } from 'react';
+import { todoReducer } from '../reducers/todoReducer';
 
 export const TodoContext = createContext();
 
-const todoReducer = (state, action) => {
-  switch (action.type) {
-    case 'ADD_TASK':
-      return { ...state, tasks: [...state.tasks, action.payload] };
-    case 'TOGGLE_TASK':
-      return {
-        ...state,
-        tasks: state.tasks.map((task) =>
-          task.id === action.payload.id
-            ? { ...task, completed: action.payload.completed }
-            : task
-        ),
-      };
-    case 'DELETE_TASK':
-      return {
-        ...state,
-        tasks: state.tasks.filter((task) => task.id !== action.payload),
-      };
-    case 'DELETE_ALL_TASKS':
-      return { ...state, tasks: [] }; // Borrar todas las tareas
-    case 'SET_FILTER':
-      return { ...state, currentFilter: action.payload };
-    default:
-      return state;
+export const useTodoContext = () => {
+  const context = useContext(TodoContext);
+  if (!context) {
+    throw new Error('useTodoContext must be used within a TodoContextProvider');
   }
+  return context;
 };
 
 export const TodoContextProvider = ({ children }) => {
