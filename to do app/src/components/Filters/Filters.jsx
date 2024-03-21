@@ -1,14 +1,12 @@
-// Filter.js
-import React from 'react';
 import styles from './Filters.module.css';
 import { filters } from '../../constants/filters';
 import { useTasks } from '../../Hooks/useTasks'; // Importa el hook useTasks
 
 export function Filter() {
-  const { currentFilter, handleFilterChange } = useTasks(); // Usa el hook useTasks
+  const { currentFilter, setFilter } = useTasks(); // Usa el hook useTasks
 
   const handleChange = ({ target }) => {
-    handleFilterChange(target.value);
+    setFilter(target.value);
   };
 
   return (

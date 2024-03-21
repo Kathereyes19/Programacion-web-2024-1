@@ -17,6 +17,7 @@ export function List() {
           tasks.map((item) => (
             <Task
               key={item.id}
+              taskName={item.taskName} // Pasamos el nombre de la tarea como prop
               item={item}
               onToggle={toggleTask}
               onDelete={deleteTask}
@@ -30,8 +31,8 @@ export function List() {
   );
 }
 
-function Task({ item, onToggle, onDelete }) {
-  const { id, text, description, priority, completed } = item;
+function Task({ taskName, item, onToggle, onDelete }) {
+  const { id, description, priority, completed } = item;
 
   const handleCheckboxChange = () => {
     onToggle(id, !completed);
@@ -51,7 +52,7 @@ function Task({ item, onToggle, onDelete }) {
           onChange={handleCheckboxChange}
         />
         <p className={`${styles.taskText} ${completed ? styles.completed : ''}`}>
-          {text}
+          {taskName} {/* Mostrar el nombre de la tarea */}
         </p>
       </div>
       <div className={styles.taskBottom}>
@@ -62,3 +63,4 @@ function Task({ item, onToggle, onDelete }) {
     </div>
   );
 }
+
