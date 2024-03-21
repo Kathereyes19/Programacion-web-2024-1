@@ -1,5 +1,4 @@
 import { useReducer } from 'react';
-import { ToDoReducer } from '../reducers/ToDoReducer';
 
 const initInputValue = {
     taskName: '',
@@ -24,7 +23,7 @@ const formReducer = (state, action) => {
     }
 };
 
-export const useForm = (createTasks) => {
+export const useForm = (createTask) => {
     const [state, dispatch] = useReducer(formReducer, initInputValue);
 
     const handleChange = (e) => {
@@ -39,7 +38,7 @@ export const useForm = (createTasks) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        createTasks(state);
+        createTask(state); // Aquí se pasa el estado del formulario a la función createTask
         dispatch({
             type: 'RESET_INPUT_VALUES'
         });

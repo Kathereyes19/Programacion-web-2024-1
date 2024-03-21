@@ -1,13 +1,18 @@
 import { useContext } from 'react';
 import { TodoContext } from '../context/ToDoAppContext';
 
+// Función para generar un ID único
+const generateId = () => {
+  return '_' + Math.random().toString(36).substr(2, 9);
+};
+
 export const useTasks = () => {
   const { state, dispatch } = useContext(TodoContext);
   const { tasks, currentFilter } = state;
 
   const createTask = (taskData) => {
     const newTask = {
-      id: generateId(), // Aquí debes definir la función para generar un ID único
+      id: generateId(), // Aquí usamos la función para generar el ID único
       ...taskData,
       completed: false
     };
