@@ -1,128 +1,51 @@
-import { useEffect, useContext, useReducer } from 'react';
-import { TodoContext } from '../context/ToDoAppContextProvider';
-import { ToDoReducer } from '../reducers/ToDoReducer';
-import crypto from 'crypto'; // Asegúrate de importar crypto si no lo has hecho
+import { useContext } from 'react';
+import { TodoContext } from '../context/ToDoAppContext';
 
 export const useTasks = () => {
-  // Obtener el contexto de TodoContextProvider
-  const context = useContext(TodoContext);
+  const { state, dispatch } = useContext(TodoContext);
+  const { tasks, currentFilter } = state;
 
-  // Verificar si el contexto existe
-  if (!context) {
-    throw new Error('This component should be within a TodoContextProvider Component');
-  }
-
-  // Extraer valores del contexto
-  const {
-    tasks,
-    setTasks,
-    currentFilter,
-    setFilter,
-    tasksToDelete,
-    setTasksToDelete
-  } = context;
-
-  // Reducer para el estado local del hook
-  const [state, dispatch] = useReducer(ToDoReducer, {
-    tasks: tasks || [], // Valor predeterminado para tasks
-    currentFilter: 'all',
-    tasksToDelete: []
-  });
-
-  // Efecto para guardar las tareas en el almacenamiento local cuando cambian
-  useEffect(() => {
-    window.localStorage.setItem('Tasks', JSON.stringify(tasks));
-  }, [tasks]);
-
-  // Efecto para guardar el filtro actual en el almacenamiento local cuando cambia
-  useEffect(() => {
-    window.localStorage.setItem('Filter', JSON.stringify(currentFilter));
-  }, [currentFilter]);
-
-  // Función para crear nuevas tareas
-  const createTasks = (taskData) => {
+  const createTask = (taskData) => {
     const newTask = {
-      id: crypto.randomUUID(),
-      text: taskData.taskName,
-      description: taskData.description,
-      priority: taskData.priority,
+      id: generateId(), // Aquí debes definir la función para generar un ID único
+      ...taskData,
       completed: false
     };
-    setTasks(prevState => [...prevState, newTask]);
+    dispatch({ type: 'ADD_TASK', payload: newTask });
   };
 
-  // Verificar si hay tareas
-  const hasTasks = state.tasks.length > 0;
-
-  // Función para cambiar el estado de completitud de una tarea
-  const handleToggle = (data) => {
-    const { id, completed } = data;
-    const newTasks = state.tasks.map(task => {
-      if (task.id === id) {
-        return {
-          ...task,
-          completed
-        };
-      }
-      return task;
-    });
-    setTasks(newTasks);
+  const toggleTask = (taskId, completed) => {
+    dispatch({ type: 'TOGGLE_TASK', payload: { id: taskId, completed } });
   };
 
-  // Función para eliminar una tarea
-  const handleDelete = (data) => {
-    const { id } = data;
-    const deleteTask = state.tasks.filter((task) => task.id !== id);
-    setTasks(deleteTask);
+  const deleteTask = (taskId) => {
+    dispatch({ type: 'DELETE_TASK', payload: taskId });
   };
 
-  // Función para cambiar el filtro actual
-  const handleFilterChange = (filterValue) => {
-    setFilter(filterValue);
+  const setFilter = (filter) => {
+    dispatch({ type: 'SET_FILTER', payload: filter });
   };
 
-  // Filtrar tareas según el filtro actual
-  const filteredTasks = state.tasks.filter((task) => {
-    if (state.currentFilter === 'completed') {
+  const filteredTasks = tasks.filter((task) => {
+    if (currentFilter === 'completed') {
       return task.completed;
-    } 
-    if (state.currentFilter === 'pending') {
+    } else if (currentFilter === 'pending') {
       return !task.completed;
+    } else {
+      return true;
     }
-    return true;
   });
 
-  // Contar tareas completadas
-  const completedTasks = state.tasks.filter(task => task.completed).length;
+  const completedTasks = tasks.filter((task) => task.completed).length;
+  const allTasks = tasks.length;
 
-  // Contar todas las tareas
-  const allTasks = state.tasks.length;
-
-  // Función para eliminar todas las tareas completadas
-  const handleDeleteAll = () => {
-    const completedTaskIds = state.tasks.filter((task) => task.completed).map((task) => task.id);
-
-    setTasksToDelete(completedTaskIds);
-
-    setTimeout(() => {
-      const newTasks = state.tasks.filter((task) => !task.completed);
-      setTasks(newTasks);
-    }, 500);
-  };
-
-  // Devolver los valores y funciones necesarios
   return {
-    tasks: state.tasks,
-    currentFilter: state.currentFilter,
-    createTasks,
-    hasTasks,
-    handleToggle,
-    handleDelete,
-    handleFilterChange,
-    filteredTasks,
+    tasks: filteredTasks,
+    createTask,
+    toggleTask,
+    deleteTask,
+    setFilter,
     completedTasks,
-    allTasks,
-    handleDeleteAll, 
-    tasksToDelete
+    allTasks
   };
 };
