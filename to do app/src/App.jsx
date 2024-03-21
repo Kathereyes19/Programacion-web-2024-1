@@ -3,7 +3,7 @@ import { Form } from "./components/Form/Form"
 import { Filter } from "./components/Filters/Filters"
 import { List } from "./components/List/List"
 import { Footer } from "./components/Footer/Footer"
-import { TodoContextProvider } from './context/ToDoAppContextProvider'
+import { TodoContextProvider } from "./context/ToDoAppContextProvider"
 
 export default function App (){
     return(

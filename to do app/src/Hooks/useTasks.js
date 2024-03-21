@@ -1,17 +1,18 @@
-import { useEffect, useContext } from 'react'
-import { TodoContext } from '../context/ToDoAppContext'
+import { useEffect, useContext, useReducer } from 'react';
+import { TodoContext } from '../context/ToDoAppContextProvider';
+import { ToDoReducer } from '../reducers/ToDoReducer';
+import crypto from 'crypto'; // Asegúrate de importar crypto si no lo has hecho
 
 export const useTasks = () => {
-  const context = useContext(TodoContext)
+  // Obtener el contexto de TodoContextProvider
+  const context = useContext(TodoContext);
 
-  // Custom hook para gestionar las tareas dentro del to do app. 
-  // La const context = useContext(TodoContext) usa la función para obtener el contexto 
-
+  // Verificar si el contexto existe
   if (!context) {
-    throw new Error('This component should be within a TodoContextProvider Component')
-  // Verifica si el contexto existe. Si no existe, arroja un error
+    throw new Error('This component should be within a TodoContextProvider Component');
   }
 
+  // Extraer valores del contexto
   const {
     tasks,
     setTasks,
@@ -19,20 +20,26 @@ export const useTasks = () => {
     setFilter,
     tasksToDelete,
     setTasksToDelete
-  } = context
+  } = context;
 
+  // Reducer para el estado local del hook
+  const [state, dispatch] = useReducer(ToDoReducer, {
+    tasks: tasks || [], // Valor predeterminado para tasks
+    currentFilter: 'all',
+    tasksToDelete: []
+  });
+
+  // Efecto para guardar las tareas en el almacenamiento local cuando cambian
   useEffect(() => {
-    window.localStorage.setItem('Tasks', JSON.stringify(tasks))
-  }, [tasks])
+    window.localStorage.setItem('Tasks', JSON.stringify(tasks));
+  }, [tasks]);
 
+  // Efecto para guardar el filtro actual en el almacenamiento local cuando cambia
   useEffect(() => {
-    window.localStorage.setItem('Filter', JSON.stringify(currentFilter))
-  }, [currentFilter])
+    window.localStorage.setItem('Filter', JSON.stringify(currentFilter));
+  }, [currentFilter]);
 
-// Se definen dos useEffect. 
-// El primero se activa cada vez que cambian las tareas, y guarda las tareas en el almacenamiento local del navegador. 
-// El segundo se activa cada vez que cambia el filtro actual (currentFilter), y guarda el filtro en el local.
-
+  // Función para crear nuevas tareas
   const createTasks = (taskData) => {
     const newTask = {
       id: crypto.randomUUID(),
@@ -40,96 +47,73 @@ export const useTasks = () => {
       description: taskData.description,
       priority: taskData.priority,
       completed: false
-    }
-    setTasks(prevState => [...prevState, newTask])
-  }
+    };
+    setTasks(prevState => [...prevState, newTask]);
+  };
 
-  // Una función que recibe datos de tarea (taskData) y crea una nueva tarea con un ID único generado por crypto.randomUUID(). 
-  // Agrega esta tarea a la lista de tareas existentes utilizando setTasks.
-  
-  const hasTasks = tasks.length > 0 
-  // indica si hay tareas presentes
+  // Verificar si hay tareas
+  const hasTasks = state.tasks.length > 0;
 
+  // Función para cambiar el estado de completitud de una tarea
   const handleToggle = (data) => {
-    console.log(data)
-    const { id, completed } = data
-    const newTasks = tasks.map(task => {
+    const { id, completed } = data;
+    const newTasks = state.tasks.map(task => {
       if (task.id === id) {
-        const newTask = {
+        return {
           ...task,
           completed
-        }
-        return newTask
+        };
       }
-      return task
-    })
-    setTasks(newTasks)
-  } 
+      return task;
+    });
+    setTasks(newTasks);
+  };
 
-  // Maneja el cambio de estado de una tarea entre completada y no completada. 
-  // Toma un objeto de datos que incluye el ID de la tarea y el nuevo estado de completado.
-  // Actualiza la lista de tareas usando setTasks.
-
+  // Función para eliminar una tarea
   const handleDelete = (data) => {
-    console.log(data)
-    const { id } = data
-    const deleteTask = tasks.filter((task) => task.id !== id)
-    setTasks(deleteTask)
-  }
+    const { id } = data;
+    const deleteTask = state.tasks.filter((task) => task.id !== id);
+    setTasks(deleteTask);
+  };
 
-  // Maneja la eliminación de una tarea. 
-  // Toma un objeto de datos que incluye el ID de la tarea a eliminar. 
-  // Filtra las tareas para excluir la tarea con el ID dado y actualiza la lista de tareas utilizando setTasks.
-
+  // Función para cambiar el filtro actual
   const handleFilterChange = (filterValue) => {
-    console.log(filterValue)
-    setFilter(filterValue)
-  }
+    setFilter(filterValue);
+  };
 
-  // Maneja el cambio de filtro. 
-  //Actualiza el filtro actual utilizando setFilter.
-
-  const filteredTasks = tasks.filter((task) => {
-    if (currentFilter === 'completed') {
-      return task.completed
-    } if (currentFilter === 'pending') {
-      return !task.completed
-    } else {
-      return task
+  // Filtrar tareas según el filtro actual
+  const filteredTasks = state.tasks.filter((task) => {
+    if (state.currentFilter === 'completed') {
+      return task.completed;
+    } 
+    if (state.currentFilter === 'pending') {
+      return !task.completed;
     }
-  })
+    return true;
+  });
 
-  // Lista de tareas filtradas según el filtro actual.
+  // Contar tareas completadas
+  const completedTasks = state.tasks.filter(task => task.completed).length;
 
-  const completedTasks = tasks.filter(task => task.completed).length
-  const allTasks = tasks.length
+  // Contar todas las tareas
+  const allTasks = state.tasks.length;
 
-  // La cantidad de tareas completadas.
-  // La cantidad total de tareas.
-
+  // Función para eliminar todas las tareas completadas
   const handleDeleteAll = () => {
-    const completedTaskIds = tasks.filter((task) => task.completed).map((task) => task.id)
+    const completedTaskIds = state.tasks.filter((task) => task.completed).map((task) => task.id);
 
-    const updatedTasks = tasks.map((task) => {
-      if (task.completed) {
-        return { ...task }
-      }
-      return task
-    })
-    setTasksToDelete(completedTaskIds)
+    setTasksToDelete(completedTaskIds);
 
     setTimeout(() => {
-      const newTasks = updatedTasks.filter((task) => !task.completed)
-      setTasks(newTasks)
-    }, 500)
-  }
+      const newTasks = state.tasks.filter((task) => !task.completed);
+      setTasks(newTasks);
+    }, 500);
+  };
 
-  // Maneja la eliminación de todas las tareas completadas. 
-  //Guarda los IDs de las tareas completadas a eliminar en tasksToDelete
-  //Las elimina de la lista de tareas después de un cierto tiempo utilizando setTasks.
-  
+  // Devolver los valores y funciones necesarios
   return {
-    currentFilter,
+    tasks: state.tasks,
+    currentFilter: state.currentFilter,
     createTasks,
     hasTasks,
     handleToggle,
@@ -138,7 +122,7 @@ export const useTasks = () => {
     filteredTasks,
     completedTasks,
     allTasks,
-    handleDeleteAll,
+    handleDeleteAll, 
     tasksToDelete
-  }
-}
+  };
+};

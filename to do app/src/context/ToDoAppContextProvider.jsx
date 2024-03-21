@@ -1,17 +1,19 @@
-import { TodoContext } from './ToDoAppContext'
-import { useReducer, useEffect } from 'react'
-import { ToDoReducer } from '../reducers/ToDoAppReducer';
+import { createContext, useReducer, useEffect } from 'react';
+import { ToDoReducer } from '../reducers/ToDoReducer';
+
+export const TodoContext = createContext(null);
+
+const initFilterState = JSON.parse(window.localStorage.getItem('Filter')) ?? 'all';
+const initTaskState = JSON.parse(window.localStorage.getItem('Tasks')) ?? [];
+
+const initialState = {
+  tasks: initTaskState,
+  currentFilter: initFilterState,
+  tasksToDelete: []
+};
 
 export function TodoContextProvider ({ children }) {
-  const initTaskState = JSON.parse(window.localStorage.getItem('Tasks')) ?? [];
-  const initFilterState = JSON.parse(window.localStorage.getItem('Filter')) ?? 'all';
-  const initialState = {
-    tasks: initTaskState,
-    currentFilter: initFilterState,
-    tasksToDelete: []
-  };
-
-  const [state, dispatch] = useReducer(ToDoReducer, initialState); // Aquí se corrige el nombre de la función
+  const [state, dispatch] = useReducer(ToDoReducer, initialState);
 
   useEffect(() => {
     window.localStorage.setItem('Tasks', JSON.stringify(state.tasks));

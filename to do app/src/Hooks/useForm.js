@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useReducer } from 'react';
+import { ToDoReducer } from '../reducers/ToDoReducer';
 
 const initInputValue = {
     taskName: '',
@@ -6,38 +7,31 @@ const initInputValue = {
     priority: ''
 };
 
-// Define un objeto llamado initInputValue que representa los valores iniciales del formulario. 
-// Tiene tres campos: taskName, description y priority, inicializados con cadenas vacías.
-
 const formReducer = (state, action) => {
     switch (action.type) {
         case 'SET_INPUT_VALUES':
             return {
                 ...state,
-                inputValues: action.payload
+                ...action.payload
             };
         case 'RESET_INPUT_VALUES':
             return {
                 ...state,
-                inputValues: initInputValue
+                ...initInputValue
             };
         default:
             return state;
     }
 };
 
-
 export const useForm = (createTasks) => {
-    const [state, dispatch] = useReducer(formReducer, {
-        inputValues: initInputValue
-    });
+    const [state, dispatch] = useReducer(formReducer, initInputValue);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         dispatch({
             type: 'SET_INPUT_VALUES',
             payload: {
-                ...state.inputValues,
                 [name]: value
             }
         });
@@ -45,15 +39,14 @@ export const useForm = (createTasks) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        createTasks(state.inputValues);
+        createTasks(state);
         dispatch({
             type: 'RESET_INPUT_VALUES'
         });
     };
 
-
     return {
-        inputValues: state.inputValues,
+        inputValues: state,
         handleChange,
         handleSubmit
     };

@@ -1,6 +1,7 @@
-import styles from '../Footer/Footer.module.css'
+import React from 'react';
 import { Button } from '../Button/Button';
-import { useTasks } from '../../Hooks/useTasks'
+import { useTasks } from '../../Hooks/useTasks';
+import styles from '../Footer/Footer.module.css';
 
 export function Footer() {
   const {
@@ -9,7 +10,8 @@ export function Footer() {
     handleDeleteAll
   } = useTasks();
 
-  // Utiliza el hook useTasks para obtener la cantidad de tareas completadas (completedTasks), la cantidad total de tareas (allTasks) y la función para eliminar todas las tareas completadas (handleDeleteAll).
+  // Utiliza el hook useTasks para obtener la cantidad de tareas completadas (completedTasks),
+  // la cantidad total de tareas (allTasks) y la función para eliminar todas las tareas completadas (handleDeleteAll).
   
   return (
     <div className={styles.divStyle}>
@@ -18,7 +20,3 @@ export function Footer() {
     </div>
   );
 }
-
-    
-  
-
