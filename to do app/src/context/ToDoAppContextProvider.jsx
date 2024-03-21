@@ -1,40 +1,29 @@
 import { TodoContext } from './ToDoAppContext'
-import { useState } from 'react'
-
-// Actúa como un proveedor de contexto para la aplicación de lista de tareas
+import { useReducer, useEffect } from 'react'
+import { ToDoReducer } from '../reducers/ToDoAppReducer';
 
 export function TodoContextProvider ({ children }) {
+  const initTaskState = JSON.parse(window.localStorage.getItem('Tasks')) ?? [];
+  const initFilterState = JSON.parse(window.localStorage.getItem('Filter')) ?? 'all';
+  const initialState = {
+    tasks: initTaskState,
+    currentFilter: initFilterState,
+    tasksToDelete: []
+  };
 
-  // Toma un prop children, que representa los elementos secundarios que están envueltos por este proveedor de contexto.
+  const [state, dispatch] = useReducer(ToDoReducer, initialState); // Aquí se corrige el nombre de la función
 
-  const initTaskState = JSON.parse(window.localStorage.getItem('Tasks')) ?? []
+  useEffect(() => {
+    window.localStorage.setItem('Tasks', JSON.stringify(state.tasks));
+  }, [state.tasks]);
 
-  // Lee el estado inicial de las tareas desde el almacenamiento local del navegador. 
-  // Si no hay un estado guardado previamente, se inicializa como un array vacío.
-
-  const initFilterState = JSON.parse(window.localStorage.getItem('Filter')) ?? 'all'
-
-  //  Lee el estado inicial del filtro desde el almacenamiento local del navegador. 
-  // Si no hay un estado guardado previamente, se inicializa como 'all'.
-
-  const [tasks, setTasks] = useState(initTaskState) // Para array de tareas
-  const [currentFilter, setFilter] = useState(initFilterState) // Para los filtros
-  const [tasksToDelete, setTasksToDelete] = useState([]) // Para animar las tareas que se eliminan a la vez
+  useEffect(() => {
+    window.localStorage.setItem('Filter', JSON.stringify(state.currentFilter));
+  }, [state.currentFilter]);
 
   return (
-    <TodoContext.Provider value={{
-      tasks,
-      setTasks,
-      currentFilter,
-      setFilter,
-      tasksToDelete,
-      setTasksToDelete
-    }}
-    >
+    <TodoContext.Provider value={{ state, dispatch }}>
       {children}
     </TodoContext.Provider>
-  )
+  );
 }
-
-// children: Renderiza los elementos secundarios dentro del proveedor de contexto. 
-// Esto permite que los componentes secundarios accedan al contexto proporcionado por TodoContext.Provider.
