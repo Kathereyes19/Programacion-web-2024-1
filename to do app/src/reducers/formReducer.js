@@ -16,6 +16,9 @@ export const formReducer = (state, action) => { //Toma dos parámetros: state y 
         //  Se utiliza para actualizar los valores de entrada del formulario.
         // Cuando se ejecuta esta acción, el reductor devuelve un nuevo estado que consiste en el estado actual 
         // más los valores proporcionados en el campo payload de la acción.
+
+        //un "payload" se refiere a la parte de una acción que lleva información relevante para realizar una operación específica.
+    
         case 'RESET_INPUT_VALUES':
             return {
                 ...state,

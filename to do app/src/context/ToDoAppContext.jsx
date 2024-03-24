@@ -1,6 +1,5 @@
 import { createContext, useEffect, useReducer } from 'react';
-import { todoReducer } from '../reducers/todoReducer';
-
+import { todoReducer } from '../reducers/todoReducer'
 // Se crea un contexto para manejar el estado global de las tareas.
 export const TodoContext = createContext();
 
