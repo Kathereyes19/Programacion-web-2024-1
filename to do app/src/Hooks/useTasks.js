@@ -1,18 +1,17 @@
 import { useContext } from 'react';
 import { TodoContext } from '../context/ToDoAppContext';
 
-// Función para generar un ID único
 const generateId = () => {
   return '_' + Math.random().toString(36).substr(2, 9);
 };
 
 export const useTasks = () => {
-  const { state, dispatch, handleDeleteAll } = useContext(TodoContext); // Modificado para incluir handleDeleteAll en el contexto
+  const { state, dispatch, handleDeleteAll } = useContext(TodoContext); 
   const { tasks, currentFilter } = state;
 
   const createTask = (taskData) => {
     const newTask = {
-      id: generateId(), // Aquí usamos la función para generar el ID único
+      id: generateId(), 
       ...taskData,
       completed: false
     };
@@ -52,7 +51,7 @@ export const useTasks = () => {
     setFilter,
     completedTasks,
     allTasks,
-    handleDeleteAll // Incluyendo handleDeleteAll en el retorno del hook
+    handleDeleteAll 
   };
 };
 

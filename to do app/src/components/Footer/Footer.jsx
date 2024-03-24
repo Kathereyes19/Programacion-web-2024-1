@@ -13,7 +13,9 @@ export function Footer() {
   return (
     <div className={styles.divStyle}>
       <p><strong>{completedTasks} completed</strong> out of <strong>{allTasks}</strong></p> 
-      <Button className='clearAll' onClick={handleDeleteAll}>Clear All</Button> {/* Botón para borrar todas las tareas */}
+      <Button className='clearAll' onClick={handleDeleteAll}>Clear All</Button> 
+      <p><strong>Katherine Reyes</strong> & <strong> Sebastian Gonzalez</strong></p> 
+
     </div>
   );
 }

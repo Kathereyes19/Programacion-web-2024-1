@@ -21,7 +21,7 @@ export const useForm = (createTask) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        createTask(state); // Aquí se pasa el estado del formulario a la función createTask
+        createTask(state); 
         dispatch({
             type: 'RESET_INPUT_VALUES'
         });

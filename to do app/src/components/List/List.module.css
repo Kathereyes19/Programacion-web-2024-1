@@ -1,6 +1,5 @@
-/* List Div */
 .card {
-  background-color: rgb(237, 237, 237); /* Color de fondo gris */
+  background-color: rgb(237, 237, 237);
   color: var(--DarkBlue);
   padding: 1vh 2vh;
   margin: 2vh -1vh;
@@ -16,7 +15,6 @@
   height: 40vh;
 }
 
-/* Tasks */
 .task {
   display: flex;
   flex-direction: column;
@@ -26,16 +24,14 @@
   margin: 2vh 0;
   border-radius: 20px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  align-items: flex-start; /* Alinea el contenido a la izquierda */
+  align-items: flex-start; 
 }
 
-/* Texto de la tarea */
 .taskText {
   font-weight: bold;
   font-size: 1.2rem;
 }
 
-/* Estilo para el texto tachado */
 .completed {
   text-decoration: line-through;
   text-decoration-color: var(--DarkBlue) ;
@@ -43,14 +39,12 @@
   
 }
 
-/* Botones */
 .buttons-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-/* Checkbox */
 .checkbox {
   position: relative;
   margin-right: 10px;
@@ -95,7 +89,7 @@
     background-color: rgba(39, 133, 234, 0.6);
   }
 }
-/* Estilo para el contenedor del contenido de la tarea */
+
 .taskBottom {
   display: flex;
   flex-direction: column;
@@ -103,6 +97,7 @@
 }
 
 @media only screen and (max-width: 600px) {
+  
   .card {
     background-color: rgb(237, 237, 237); 
     color: var(--DarkBlue);
@@ -111,5 +106,4 @@
     border-radius: 15px;
     width: 81vw;
   }
- 
 }

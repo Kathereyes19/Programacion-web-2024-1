@@ -24,7 +24,6 @@
   background-color: rgba(29, 129, 211, 0.5); 
 }
 
-/* Estilos para el label seleccionado */
 .inputLi input:checked + .inputLabel {
   background-color: var(--Green);
   color: var(--DarkBlue);
